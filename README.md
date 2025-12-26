@@ -1,94 +1,156 @@
-<img src="https://avatars2.githubusercontent.com/u/2810941?v=3&s=96" alt="Google Cloud Platform logo" title="Google Cloud Platform" align="right" height="96" width="96"/>
+# Synopsis of  Topics
 
-# Cloud Functions Hello World with Cloud Code
+# Compute
 
-"Python: Hello World" is a simple HTTP-triggered Cloud Functions application that contains a sample Python-based script that outputs a sample "Hello World" string.
+Understood GCP global infrastructure: Regions and Zones
 
-## Table of Contents
+Created and managed Virtual Machines (Compute Engine)
 
-* [Directory contents](#directory-contents)
-* [Getting started with VS Code](#getting-started-with-vs-code)
-* [Sign up for user research](#sign-up-for-user-research)
+Configured SSH keys, OS Login, startup scripts, and metadata
 
-## Directory contents
-* `launch.json` - the required configurations for your function
-* `main.py` - the Python "Hello World" sample’s code
-* `requirements.txt` - includes the functions framework dependency
+Worked with custom images, instance templates, and shared image families
 
-## Getting started with VS Code
+Implemented Managed Instance Groups (MIGs) with autoscaling
 
-### Before you begin
+Configured load balancing and health checks
 
-1. If you're new to Google Cloud, [create an account](https://console.cloud.google.com/freetrial/signup/tos) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads.
+Monitored applications using Cloud Monitoring and Logging
 
-1. If you're testing this out to learn about the feature, [create a new project](https://pantheon.corp.google.com/projectselector2/home/dashboard) so that you can delete the project and all associated resources when you're finished.
+Created alerting policies for VM health and performance
 
-   You can also use this template as a starting point to create a new function in a new or existing project.
+Observed monitoring for App Engine and Cloud Run
 
-1. Make sure that billing is enabled for your Cloud project. Learn how to [check if billing is enabled on a project](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled).
+# Networking
 
-1. [Enable the following APIs](https://pantheon.corp.google.com/projectselector2/apis/enableflow?apiid=cloudfunctions,cloudbuild.googleapis.com,artifactregistry.googleapis.com,run.googleapis.com,logging.googleapis.com,pubsub.googleapis.com&redirect=https:%2F%2Fcloud.google.com%2Ffunctions%2Fdocs%2Fcreate-deploy-nodejs):
+Learned VPC networking fundamentals
 
-    * Cloud Functions
-    * Cloud Build
-    * Artifact Registry
-    * Cloud Run
-    * Logging
-    * Pub/Sub
-    
-1. Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Git is required for copying samples to your machine.
+Configured external/public IPs and network interfaces
 
-1. Install the [Cloud Code plugin](https://cloud.google.com/code/docs/vscode/install#installing) if you haven't already.
+Implemented VPC firewall rules using network tags and service accounts
 
-1. Since Cloud Functions integration is currently a pre-release feature, you'll also need to [install the pre-release build](https://cloud.google.com/code/docs/vscode/insiders#get).
+Enabled and analyzed VPC Flow Logs
 
-#### Create a function
+Accessed private resources using Bastion host and IAP TCP forwarding
 
-To create a new function using this sample, follow these steps:
+Worked with VPC routes and Cloud Router (BGP concepts)
 
-1. Click ![Cloud Code icon](https://cloud.google.com/static/code/docs/vscode/images/cloudcode-icon.png) **Cloud Code** and then expand the **Cloud Functions** section.
+# Storage
 
-1. Click **+ Create function** and select the **Python: Hello World** template.
+Used Cloud Storage for object storage and IAM-based access control
 
-1. Navigate to the pathway that you'd like to create your new function in, enter a name for the function, and select **Create New Application**.
+Worked with Persistent Disks and Hyperdisk for block storage
 
-1. If the folder of your application doesn't appear automatically in the **Explorer**, click ![VS Code Refresh icon](https://cloud.google.com/static/code/docs/vscode/images/refresh-icon.png) **Refresh**.
+Understood Pub/Sub and Firestore as queue and table storage
 
-#### Deploy a function
+Implemented Cloud Tasks for asynchronous execution
 
-To deploy a function, follow these steps:
+Configured disk encryption using CMEK
 
-1. Right-click a function and select **Deploy function**.
+Explored Filestore (managed NFS) and partner storage services
 
-1. In the Quickpick menu, select a GCP project to deploy your function to.
+Managed storage access using IAM and gsutil
 
-1. Select a region that the function will be deployed to.
+Database – Firestore & NoSQL
 
-1. Select a runtime.
+Compared SQL vs NoSQL databases
 
-The function's deployment may take a few minutes.
+Learned Firestore architecture, benefits, and limitations
 
-If the deployment fails, refer to the **Output** tab for the error message. Clicking the link takes you to the build logs in Google Cloud console and provides more detail about the error.
+Created and ran Firestore in Native mode
 
-#### Clean up
+Integrated Firestore with Cloud Functions and Cloud Run
 
-To delete only the function you created for this quickstart:
+Understood why Firestore is ideal for serverless applications
 
-1. In the Cloud Functions explorer, right-click the function name and then select **Open in Cloud Console**.
+Explored Bigtable and Cassandra use cases
 
-1. Click **Delete** and then click **Delete**.
+Identified Firestore drawbacks (cost, complex queries)
 
-To delete your project and the project's associated resources:
+# Cloud SQL (RDS)
 
-1. Go to the [Projects page](https://pantheon.corp.google.com/cloud-resource-manager) in the Google Cloud console.
+Learned relational database fundamentals in GCP
 
-1. Select the project that you created for this quickstart and then click **Delete**.
+Set up Cloud SQL (MySQL/PostgreSQL)
 
-1. Type the project ID to confirm and then click **Shut down**.
+Connected securely using Cloud SQL Proxy
 
-   This shuts down the project and schedules it for deletion.
+Created databases and tables
 
-SYNOPSIS ON PUB SUB
+Managed users, permissions, and monitoring
+
+Performed import/export operations
+
+# Messaging in GCP
+
+Understood messaging concepts and benefits
+
+Worked with Pub/Sub, Cloud Tasks, and Eventarc
+
+Designed publisher–subscriber architectures
+
+Compared queue-based vs event-based messaging
+
+Used message attributes and filtering
+
+Implemented real-time messaging pipelines
+
+Integrated Pub/Sub with Dataflow for streaming concepts
+
+# GCP Data Integration & Mapping
+
+Learned importance of data integration in GCP
+
+Explored Dataplex for metadata discovery
+
+Used Data Fusion and Dataflow for ingestion
+
+Created control flows and data flows
+
+Scheduled pipelines using Cloud Scheduler
+
+Monitored pipelines with Cloud Monitoring and Logging
+
+#Integrated pipelines with BigQuery and other GCP services
+
+# Command-Line Tools Used
+
+Authenticated and configured projects using gcloud
+
+Enabled required APIs (Pub/Sub, Cloud Functions, Eventarc, Cloud Run, BigQuery)
+
+Managed datasets and tables using BigQuery CLI
+
+#Created Pub/Sub topics and subscriptions
+
+Deployed 2nd-gen Cloud Functions
+
+Connected to Cloud SQL using Cloud SQL Proxy
+
+Pub/Sub → Cloud Functions → BigQuery (End-to-End Pipeline)
+Implementation Summary
+
+# Created a Pub/Sub topic and subscription for user events
+
+Published JSON messages containing user activity data
+
+# Deployed a Cloud Function triggered by Pub/Sub messages
+
+Decoded and processed messages inside the function
+
+Inserted processed data into a BigQuery table in real time
+
+End-to-End Flow
+
+Events are published to Pub/Sub
+
+Pub/Sub triggers a Cloud Function
+
+The function processes and enriches the data
+
+Final records are stored in BigQuery for analytics
+
+
+# SYNOPSIS ON PUB SUB
 Google Cloud Pub/Sub – Fully managed, real-time pub/sub messaging for asynchronous communication.
 Architecture
 •	Publishers → Topics (message storage) → Subscriptions → Subscribers (pull/push delivery).
