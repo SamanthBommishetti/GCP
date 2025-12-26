@@ -88,12 +88,41 @@ To delete your project and the project's associated resources:
 
    This shuts down the project and schedules it for deletion.
 
-### Sign up for user research
+SYNOPSIS ON PUB SUB
+Google Cloud Pub/Sub – Fully managed, real-time pub/sub messaging for asynchronous communication.
+Architecture
+•	Publishers → Topics (message storage) → Subscriptions → Subscribers (pull/push delivery).
+•	Control Plane (routers assign clients); Data Plane (forwarders handle traffic with replication across clusters/disks).
+•	Message Flow: Publish → Persist (N clusters, M disks) → Ack publisher → Deliver to subscribers → Ack/delete.
+Core Components List
+•	Topics: Message feeds with optional schemas.
+•	Subscriptions: Pull (fetch) or push (webhook) endpoints.
+•	Messages: Payload + attributes; lifecycle (unacked → redeliver → dead- letter).
+Key Features Table
 
-We want to hear your feedback!
+Feature	Benefit
+At-least-once delivery	Reliable with retries
+Global scalability	Millions msg/sec, low latency
+Dead-letter queues	Handles failures gracefully
+Integrations	Eventarc, Dataflow, BigQuery
+Use Cases & Demo
+•	Event streaming (GCS events via Event arc), IoT, analytics.
+•	Quick Setup: gcloud pubsub topics create my-topic; gcloud pubsub subscriptions create my-sub --topic=my-topic.
 
-The Cloud Code team is inviting our user community to sign-up to participate in Google User Experience Research. 
 
-If you’re invited to join a study, you may try out a new product or tell us what you think about the products you use every day. At this time, Google is only sending invitations for upcoming remote studies. Once a study is complete, you’ll receive a token of thanks for your participation such as a gift card or some Google swag. 
 
-[Sign up using this link](https://google.qualtrics.com/jfe/form/SV_4Me7SiMewdvVYhL?reserved=1&utm_source=In-product&Q_Language=en&utm_medium=own_prd&utm_campaign=Q1&productTag=clou&campaignDate=January2021&referral_code=UXbT481079) and answer a few questions about yourself, as this will help our research team match you to studies that are a great fit.
+
+# COMMANDS TO EXECUTE  pubsub
+gcloud services enable pubsub.googleapis.com
+gcloud services list --enabled | grep pubsub
+gcloud pubsub topics create user-events
+gcloud pubsub topics list
+gcloud pubsub subscriptions create user-event-sub --topic=user-events
+gcloud pubsub subscriptions list
+gcloud pubsub topics publish user-events --message='{"event": "User_Created", "user": "Samanth"}'
+gcloud pubsub subscriptions pull user-event-sub --limit=5 --auto-ack
+// to deploy to function use this code
+
+
+
+
