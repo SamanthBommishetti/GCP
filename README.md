@@ -114,14 +114,24 @@ Use Cases & Demo
 
 # COMMANDS TO EXECUTE  pubsub
 gcloud services enable pubsub.googleapis.com
+
+
 gcloud services list --enabled | grep pubsub
+
+
 gcloud pubsub topics create user-events
+
+
 gcloud pubsub topics list
+
 gcloud pubsub subscriptions create user-event-sub --topic=user-events
+
 gcloud pubsub subscriptions list
+
 gcloud pubsub topics publish user-events --message='{"event": "User_Created", "user": "Samanth"}'
+
 gcloud pubsub subscriptions pull user-event-sub --limit=5 --auto-ack
-// to deploy to function use this code
+
 
 
 
